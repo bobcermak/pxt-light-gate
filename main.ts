@@ -1,45 +1,28 @@
 
-let soucet: number
 let soucetvse: number
-let soucetvse2:number
-let kalibrace: boolean = false
+let prumer: number
 
 
-input.onButtonPressed(Button.A, function() {
-    kalibrace = true
+
+input.onButtonPressed(Button.A, function () {
+    basic.showString("K!")
     for (let i = 0; i <= 20; i++) {
-        let svetlo1: number = input.lightLevel()
         basic.pause(50)
-        soucetvse += svetlo1
+        soucetvse += input.lightLevel()
     }
 
-    soucetvse2 = soucetvse / 20
-    music.playTone(400,500)
+    prumer = soucetvse / 20
+    music.playTone(400, 500)
 
 })
 
-while (true) {
-    let svetlo2:number = input.lightLevel()
-    console.log(svetlo2)
-    basic.pause(50)
-    if(kalibrace) {
-        if (svetlo2 < soucetvse2 ) {
-            music.playTone(400,500)
-            
-        }
+
+basic.forever(function() {
+    if (input.lightLevel() < prumer) {
+         music.playTone(400, 500)
     }
-
     
-}
-
-
-
-
-
-
-
-
-
-
+})
+    
 
 

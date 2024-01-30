@@ -1,7 +1,17 @@
 
-let soucetvse: number
-let prumer: number
+let soucetvse: number = 0
+let prumer: number 
 
+
+
+
+
+basic.forever(function () {
+    if (input.lightLevel() < prumer) {
+        music.playTone(400, 500)
+    }
+
+})
 
 
 input.onButtonPressed(Button.A, function () {
@@ -13,16 +23,14 @@ input.onButtonPressed(Button.A, function () {
 
     prumer = soucetvse / 20
     music.playTone(400, 500)
+    basic.pause(50)
 
 })
 
-
-basic.forever(function() {
-    if (input.lightLevel() < prumer) {
-         music.playTone(400, 500)
-    }
-    
+input.onLogoEvent(TouchButtonEvent.Pressed, function() {
+    control.reset()
 })
+
     
 
 
